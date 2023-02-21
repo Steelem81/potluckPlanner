@@ -1,3 +1,8 @@
-import { createContext } from 'react';
+import { createContext,  useState }  from 'react';
 
-const userContext = createContext();
+
+const UserContext = createContext();
+
+const UserContextProvider = props => {
+    const [user, setUser] = useState({})
+}

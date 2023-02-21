@@ -36,11 +36,11 @@ const LoginForm = props => {
                 <h4>Login</h4>
                 <div className="mb-3">
                 {/* <label className="form-label" htmlFor="email">Email</label> */}
-                <input type="text" className="form-control" name="email" placeholder="Email" onChange = {onChangeHandler}/>
+                <input type="" className="form-control" name="email" placeholder="Email" onChange = {onChangeHandler}/>
                 </div>
                 <div className="mb-3">
                 {/* <label className="form-label" htmlFor="password">Password</label> */}
-                <input type="text" className="form-control" name="password" placeholder="Password" onChange = {onChangeHandler}/>
+                <input type="password" className="form-control" name="password" placeholder="Password" onChange = {onChangeHandler}/>
                 </div>
                 <div className="row">
                     <div className="col-auto">

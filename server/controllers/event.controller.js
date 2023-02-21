@@ -26,8 +26,8 @@ module.exports = {
             .catch(err => res.status(404).json(err))
     },
 
-    getAllEvents: (req, res) => {
-        Event.find()
+    getAllEvents: async(req, res) => {
+        await Event.find()
         .then(eventList => res.json(eventList))
         .catch(err=> res.status(400).json(err))
     },

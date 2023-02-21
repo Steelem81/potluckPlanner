@@ -3,31 +3,34 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const EventListInvited = props => {
-    const [invitationList, setInvitationList] = useState([])
+    // const [invitationList, setInvitationList] = useState([])
     const navigate = useNavigate();
-    useEffect(() => {
-        axios.get('http://localhost:8000/api/user/invites', {withCredentials: true})
-            .then(res=> {
-                console.log('Retrieved all events')
-                console.log(res.data)
-                setInvitationList(res.data)
-            })
-            .catch((err) => {
-                console.log('Something went wrong retrieving Events')
-                console.log(err)
-            })
-    }, [])
+    const invitationList = props.invitationListProp
+    const declineInvitation = props.declineInvitationProp
+    console.log(props)
+    // useEffect(() => {
+    //     axios.get('http://localhost:8000/api/user/invites', {withCredentials: true})
+    //         .then(res=> {
+    //             console.log('Retrieved all events')
+    //             console.log(res.data)
+    //             setInvitationList(res.data)
+    //         })
+    //         .catch((err) => {
+    //             console.log('Something went wrong retrieving Events')
+    //             console.log(err)
+    //         })
+    // }, [])
 
-    const declineInvitation = (e, invitationId) => {
-        console.log(invitationId)
-        axios.put(`http://localhost:8000/api/invitation/${invitationId}/update`,{
-            invitationStatus: "Declined"
-        }, {withCredentials: true})
-        .then(res => {
-            console.log(res)
-        })
-        .catch(err => console.log(err))
-    }
+    // const declineInvitation = (e, invitationId) => {
+    //     console.log(invitationId)
+    //     axios.put(`http://localhost:8000/api/invitation/${invitationId}/update`,{
+    //         invitationStatus: "Declined"
+    //     }, {withCredentials: true})
+    //     .then(res => {
+    //         console.log(res)
+    //     })
+    //     .catch(err => console.log(err))
+    // }
 
     return (
         <>
