@@ -27,7 +27,7 @@ const LoginForm = props => {
             setError(err.response.data)
         })
     }
-    console.log(error)
+
     return (
         <>
         <div className="container">

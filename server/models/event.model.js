@@ -46,7 +46,14 @@ const EventSchema = new mongoose.Schema({
             // min:[0, "Must be greater than 0%"],
             // max:[1, "Must be less than 100%"]
         }
-    }
+    },
+//Create middleware to update invitations to cancelled events
+    // EventSchema.pre('cancelEvent', (callback)=>{
+    //     this.model('Invite').update({
+    //         invitedToEvent: 'Canceled', callback)}
+    //      })
+    // })
+
 }, {timestamps: true})
 
 module.exports = mongoose.model('Event', EventSchema)

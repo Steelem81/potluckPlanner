@@ -45,7 +45,7 @@ const RegistrationForm = props => {
             </div>
             <div className="mb-3">
             <input type='text' className="form-control" name='email' placeholder="Email Address" onChange = {onChangeHandler}/>
-            {(errors.email) ? <p className="text-danger">{errors.email.message}</p>: null}
+            {(errors.email) ? <p className="text-danger">{errors.email.message}</p>: <p></p>}
             </div>
             <div className="mb-3">    
 

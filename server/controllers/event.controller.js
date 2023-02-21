@@ -43,4 +43,8 @@ module.exports = {
             .then(deletedEvent => res.json(deletedEvent))
             .catch(((err) => console.log(err)));
     }
+
+    
 }
+
+
