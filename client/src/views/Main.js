@@ -8,11 +8,25 @@ import axios from 'axios'
 const Main = () => {
     const navigate = useNavigate()
     const [invitationList, setInvitationList] = useState([])
+    const [eventList, setEventList] = useState([])
 
     
     const newEvent = (e) => {
         navigate('/event/new')
     }
+
+    useEffect(() => {
+        axios.get('http://localhost:8000/api/events', {withCredentials: true})
+            .then(res=> {
+                console.log('Retrieved all events')
+                console.log(res.data)
+                setEventList(res.data.user.eventsHosting)
+            })
+            .catch((err) => {
+                console.log('Something went wrong retrieving Events')
+                console.log(err)
+            })
+    }, [eventList])
 
     useEffect(() => {
             axios.get('http://localhost:8000/api/user/invites', {withCredentials: true})
@@ -25,7 +39,7 @@ const Main = () => {
                     console.log('Something went wrong retrieving Events')
                     console.log(err)
                 })
-        }, [])
+        }, [invitationList])
 
     const declineInvitation = (e, invitationId) => {
         console.log(invitationId)
@@ -43,7 +57,7 @@ const Main = () => {
             <h2>Plan your next get-together!!</h2>
             <div className="row">
                 <div className="m-5 col-6">
-                    <EventListHosting />
+                    <EventListHosting eventList = {eventList} setEventList={setEventList}/>
                     <EventListInvited invitationListProp={invitationList} declineInvitationProp = {declineInvitation}/>
                 </div>
                 <div className="col-4">

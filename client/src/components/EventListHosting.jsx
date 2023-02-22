@@ -1,22 +1,9 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const EventListHosting = props => {
-    const [eventList, setEventList] = useState([])
+    const {eventList, setEventList} = props
     const navigate = useNavigate();
-    useEffect(() => {
-        axios.get('http://localhost:8000/api/events', {withCredentials: true})
-            .then(res=> {
-                console.log('Retrieved all events')
-                console.log(res.data)
-                setEventList(res.data.user.eventsHosting)
-            })
-            .catch((err) => {
-                console.log('Something went wrong retrieving Events')
-                console.log(err)
-            })
-    }, [])
 
     const cancelEvent=(e)=> {
         axios.delete(`http://localhost:8000/api/event/${e}/cancel`, {withCredentials: true})
