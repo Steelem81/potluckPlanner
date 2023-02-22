@@ -8,7 +8,6 @@ const EventForm = props => {
     const [dishRatio, setDishRatio] = useState([])
     const [errors, setErrors] = useState([])
 
-
     const eventChangeHandler=(e) => {
         setFieldValues({...fieldValues, [e.target.name]: e.target.value})
     }
@@ -42,7 +41,7 @@ const EventForm = props => {
 
     return (
         <>
-      <div className="container">
+    <div className="container">
         <form onSubmit = {eventSubmitHandler}> 
             <label htmlFor="eventName" className="form-label">Event Name</label>
             <input type="text" className="form-control" value={fieldValues.eventName} name="eventName" onChange = {eventChangeHandler} />
