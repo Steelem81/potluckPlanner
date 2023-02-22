@@ -8,7 +8,6 @@ const EventForm = props => {
     const [dishRatio, setDishRatio] = useState([])
     const [errors, setErrors] = useState([])
 
-
     const eventChangeHandler=(e) => {
         setFieldValues({...fieldValues, [e.target.name]: e.target.value})
     }
